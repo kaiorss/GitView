@@ -1,0 +1,51 @@
+import react, { useState } from 'react';
+import { StyleSheet, Text, TextInput, TouchableOpacity, Alert, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import styled from 'styled-components';
+
+const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigation = useNavigation();
+
+
+    return (
+        <View style={styles.container}>
+            <TextInput 
+            style={styles.input}
+            placeholder='E-mail'
+            value={email}
+            onChangeText={setEmail}
+            />
+             <TextInput
+             style={styles.input}
+            placeholder='Senha'
+            value={password}
+            onChangeText={setPassword}
+             />
+        </View>
+    )
+
+
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 5,
+        padding: 10,
+        marginVertical: 10,
+        width: '80%',
+
+    }
+});
+
+
+export default Login;
