@@ -51,6 +51,7 @@ handleAAddUser = async () => {
                 loading: false,
                 newUser: '',
             });
+            Keyboard.dismiss();
         }catch(error){
             
         }
