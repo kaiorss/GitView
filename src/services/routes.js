@@ -1,8 +1,7 @@
 import react from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Login from "../pages/Login";
-
+import Login from "../pages/login.js";
 
 const Stack = createStackNavigator();
 
@@ -10,10 +9,41 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen 
+                name="Login"
+                component={Login}
+                options={{
+                    title :"login",
+                    headerTitleAlign: "center",
+                    headerStyle: {backgroundColor: "#2e2e2e"},
+                    headerTitleStyle: {color: "#fff", fontWeight: "bold"},
+                }}
+
+                />
+              {/* <Stack.Screen 
+                name="main"
+                component={main}
+                options={{
+                    title :"GitHub Viewer",
+                    headerTitleAlign: "center",
+                    headerStyle: {backgroundColor: "#2e2e2e"},
+                    headerTitleStyle: {color: "#fff", fontWeight: "bold"},
+                }}
+                 
+                />  
+                   <Stack.Screen 
+                name="user"
+                component={user}
+                options={{
+                    title :"Perfil do usuário",
+                    headerTitleAlign: "center",
+                    headerStyle: {backgroundColor: "#2e2e2e"},
+                    headerTitleStyle: {color: "#fff", fontWeight: "bold"},
+              }}
+
+                /> */}
             </Stack.Navigator>
         </NavigationContainer>
     );
 
 }
-
