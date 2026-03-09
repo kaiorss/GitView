@@ -53,8 +53,12 @@ handleAAddUser = async () => {
             });
             Keyboard.dismiss();
         }catch(error){
-            
-        }
-        
+             alert("Usuário não encontrado");
+      this.setState({ loading: false });
     }
+  };
+
+  render() {
+    const { newUser, users, loading } = this.state;
+        }
 }
