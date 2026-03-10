@@ -3,7 +3,7 @@ import { Keyboard, ActivityIndicator} from "react-native";
 import Icon from 'react-native-vector-icons/MateerialIcons';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import api from "../services/api";
-import {} from '../styles';
+import {Container,Form,Input,SubmitButtom,List,User,Avatar,Name,Bio,ProfileButton,ProfileButtonText} from '../styles';
 
 
 
@@ -45,6 +45,7 @@ handleAAddUser = async () => {
                 login: response.data.login,
                 bio: response.data.bio,
                 avatar: response.data.avatar_url,
+                comp : response.data.companies,
             };
             this.setState({
                 users: [...users, data],
@@ -60,5 +61,45 @@ handleAAddUser = async () => {
 
   render() {
     const { newUser, users, loading } = this.state;
+
+    return(
+        <Container>
+            <Form>
+                <Input
+                
+                autoCorrect={false}
+                autoCapitalize="none"
+                placeholder="Adicionar usuário"
+                value={newUser}
+                onChangeText={text => this.setState({ newUser: text })}
+                returnKeyType="send"
+                onSubmitEditing={this.handleAAddUser}
+                 /> 
+                <SubmitButtom loading={loading} onPress={this.handleAAddUser}>
+                    {loading ? (
+                        <ActivityIndicator color="#fff" />
+                    ) : (
+                        <Icon name="add" size={20} color="#fff" />
+                    )}
+                </SubmitButtom>
+            </Form>
+            <List
+                showsVerticalScrollIndicator={false}
+                data={users}
+                keyExtractor={user => user.login}
+                renderItem={({ item }) => (
+                    <User>
+                        <Avatar source={{ uri: item.avatar }} />
+                        <Name>{item.name}</Name>
+                        <Name>{item.comp}</Name>
+                        <Bio>{item.bio}</Bio>
+                        <ProfileButton onPress={() => {}}>
+                            <ProfileButtonText>Ver perfil</ProfileButtonText>
+                        </ProfileButton>
+                    </User>
+                )}
+            />
+        </Container>
+    );
         }
 }

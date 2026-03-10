@@ -20,9 +20,9 @@ export default function Routes() {
                 }}
 
                 />
-              {/* <Stack.Screen 
+              <Stack.Screen 
                 name="main"
-                component={main}
+                component={Main}
                 options={{
                     title :"GitHub Viewer",
                     headerTitleAlign: "center",
@@ -31,7 +31,7 @@ export default function Routes() {
                 }}
                  
                 />  
-                   <Stack.Screen 
+                   {/* <Stack.Screen 
                 name="user"
                 component={user}
                 options={{
