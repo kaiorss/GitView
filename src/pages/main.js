@@ -1,10 +1,21 @@
-import react,{Component} from "react";
+import React, { Component } from "react";
 import { Keyboard, ActivityIndicator} from "react-native";
-import Icon from 'react-native-vector-icons/MateerialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import api from "../services/api";
-import {Container,Form,Input,SubmitButtom,List,User,Avatar,Name,Bio,ProfileButton,ProfileButtonText} from '../styles';
-
+import {
+  Container,
+  Form,
+  Input,
+  SubmitButton,
+  List,
+  User,
+  Avatar,
+  Name,
+  Bio,
+  ProfileButton,
+  ProfileButtonText
+} from '../services/styles';
 
 
 export default class Main extends Component {
@@ -21,8 +32,7 @@ async componentDidMount() {
 
     }
 }
-componentDidUpdate
-(_, prevState) {
+componentDidUpdate (_, prevState) {
     const {users} = this.state;
     if(prevState.users !== users) {
         AsyncStorage.setItem('users', JSON.stringify(users));
@@ -75,13 +85,13 @@ handleAAddUser = async () => {
                 returnKeyType="send"
                 onSubmitEditing={this.handleAAddUser}
                  /> 
-                <SubmitButtom loading={loading} onPress={this.handleAAddUser}>
+                <SubmitButton loading={loading} onPress={this.handleAAddUser}>
                     {loading ? (
                         <ActivityIndicator color="#fff" />
                     ) : (
                         <Icon name="add" size={20} color="#fff" />
                     )}
-                </SubmitButtom>
+                </SubmitButton>
             </Form>
             <List
                 showsVerticalScrollIndicator={false}

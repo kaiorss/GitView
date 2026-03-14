@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../pages/Login.js";
+import Main from "../pages/main.js";
 const Stack = createStackNavigator();
 
 export default function Routes() {
@@ -21,7 +22,7 @@ export default function Routes() {
 
                 />
               <Stack.Screen 
-                name="main"
+                name="Main"
                 component={Main}
                 options={{
                     title :"GitHub Viewer",

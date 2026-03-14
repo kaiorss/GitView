@@ -11,7 +11,7 @@ const Login = () => {
 
 
     const handleLogin = () => {
-        if (email === 'k' && password === '1') {
+        if (email === '' && password === '') {
             navigation.navigate('Main');
             } else {
                 Alert.alert('Erro', 'E-mail ou senha incorretos');
