@@ -99,16 +99,31 @@ handleAAddUser = async () => {
                 keyExtractor={user => user.login}
                 renderItem={({ item }) => (
                     <User>
-                        <Avatar source={{ uri: item.avatar }} />
-                        <Name>{item.name}</Name>
-                        <Name>{item.comp}</Name>
-                        <Bio>{item.bio}</Bio>
-                        <ProfileButton onPress={() => {}}>
-                            <ProfileButtonText>Ver perfil</ProfileButtonText>
-                        </ProfileButton>
-                    </User>
-                )}
-            />
+   <Avatar source={{ uri: item.avatar }} />
+              <Name>{item.name}</Name>
+              <Bio>{item.bio}</Bio>
+              <ProfileButton
+                onPress={() => {
+                  this.props.navigation.navigate("user", { user: item });
+                }}
+              >
+                <ProfileButtonText>Ver Perfil</ProfileButtonText>
+              </ProfileButton>
+              <ProfileButton
+                onPress={() => {
+                  this.setState({
+                    users: this.state.users.filter(
+                      (user) => user.login !== item.login,
+                    ),
+                  });
+                }}
+                style={{ backgroundColor: "#e74c3c", marginTop: 5 }}
+              >
+                <ProfileButtonText>Excluir</ProfileButtonText>
+              </ProfileButton>
+            </User>
+          )}
+        />
         </Container>
     );
         }
